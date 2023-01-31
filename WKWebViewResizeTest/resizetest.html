@@ -2,7 +2,36 @@
 <head>
 </head>
 <body>
-	<button onclick="window.open('resizetest.html', '', 'width=200,height=200')">Open PopUp</button>
-	<button onclick="window.resizeTo(400, 400);">Resize</button>
+	<button onclick="window.open('resizetest.html', '', 'width=250,height=250')">Open PopUp</button>
+	
+	<br />
+	
+	<button onclick="window.resizeTo(50, 50);">Resize to 50x50</button>
+	<button onclick="window.resizeTo(100, 100);">Resize to 100x100</button>
+	<button onclick="window.resizeTo(200, 200);">Resize to 200x200</button>
+	<button onclick="window.resizeTo(400, 400);">Resize to 400x400</button>
+	
+	<br />
+	
+	<label for="width">Width</label>
+	<input id="width" value="5"></input>
+	
+	<br />
+	
+	<label for="height">Height</label>
+	<input id="height" value="5"></input>
+	
+	<script>
+		function updateSize() {
+			document.getElementById("width").value = window.innerWidth;
+			document.getElementById("height").value = window.innerHeight;
+		}
+		
+		window.addEventListener("resize", function() {
+			updateSize();
+		});
+		
+		updateSize();
+	</script>
 </body>
 </html>

@@ -6,7 +6,11 @@ class WebWindowController: NSWindowController {
 	public let webView: WKWebView
 	public let isPopUp: Bool
 	
+	private static let defaultSetWindowFrame = NSRect(x: 0, y: 0,
+													  width: 100, height: 100)
+	
 	private var awoken = false
+	private var hasSetWindowFrameBeenCalled = false
 	private var subWindowControllers = [WebWindowController]()
 	
 	override var windowNibName: NSNib.Name? { "WebWindow" }
@@ -92,11 +96,18 @@ extension WebWindowController: WKUIDelegate {
 	@objc(_webView:setWindowFrame:)
 	func _webView(_ webView: WKWebView,
 				  setWindowFrame windowFrame: NSRect) {
-		// TODO: Why does this get called once per popup (window.open) with a size of 100x100?
+		guard isPopUp else { return }
+		
+		let originalHasSetWindowFrameBeenCalled = hasSetWindowFrameBeenCalled
+		
+		self.hasSetWindowFrameBeenCalled = true
+		
+		if !originalHasSetWindowFrameBeenCalled,
+		   windowFrame == Self.defaultSetWindowFrame {
+			return
+		}
 		
 		print("Asked to resize window to \(windowFrame)")
-		
-		guard isPopUp else { return }
 		
 		webView.window?.setContentSize(windowFrame.size)
 	}
