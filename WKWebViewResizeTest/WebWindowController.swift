@@ -93,6 +93,7 @@ extension WebWindowController: WKUIDelegate {
 		return newWebView
 	}
 	
+	/// WARNING: Private API!
 	@objc(_webView:setWindowFrame:)
 	func _webView(_ webView: WKWebView,
 				  setWindowFrame windowFrame: NSRect) {
