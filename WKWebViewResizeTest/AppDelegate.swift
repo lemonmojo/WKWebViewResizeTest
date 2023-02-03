@@ -19,9 +19,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //			fatalError("Failed to parse URL")
 //		}
 		
-//		guard let url = URL(string: "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_resizeby_resizeto") else {
-//			fatalError("Failed to parse URL")
-//		}
+		guard let url = URL(string: "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_resizeby_resizeto") else {
+			fatalError("Failed to parse URL")
+		}
 		
 		openWebWindow(withURL: url)
 	}

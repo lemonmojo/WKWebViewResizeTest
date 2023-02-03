@@ -98,7 +98,7 @@ extension WebWindowController: WKUIDelegate {
 	/// WARNING: Private API!
 	@objc(_webView:getWindowFrameWithCompletionHandler:)
 	func _webView(_ webView: WKWebView,
-				  completionHandler: (_: CGRect) -> ()) {
+				  completionHandler: (_: NSRect) -> Void) {
 		let windowFrame = webView.bounds
 		
 		print("Asked for window frame: \(windowFrame)")
