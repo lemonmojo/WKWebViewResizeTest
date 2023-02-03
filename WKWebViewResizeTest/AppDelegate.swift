@@ -10,12 +10,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	private func openWebWindow() {
-		guard let url = Bundle(for: Self.self).url(forResource: "resizetest",
-												   withExtension: "html") else {
-			fatalError("Failed to get embedded HTML URL")
-		}
+//		guard let url = Bundle(for: Self.self).url(forResource: "resizetest",
+//												   withExtension: "html") else {
+//			fatalError("Failed to get embedded HTML URL")
+//		}
 		
 //		guard let url = URL(string: "https://www.w3schools.com/jsref/met_win_open.asp") else {
+//			fatalError("Failed to parse URL")
+//		}
+		
+		guard let url = URL(string: "https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_resizeby_resizeto") else {
+			fatalError("Failed to parse URL")
+		}
+		
+//		guard let url = URL(string: "https://127.0.0.1:58265/") else {
 //			fatalError("Failed to parse URL")
 //		}
 		

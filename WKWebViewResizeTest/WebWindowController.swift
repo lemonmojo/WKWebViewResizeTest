@@ -26,6 +26,8 @@ class WebWindowController: NSWindowController {
 	convenience init(url: URL) {
 		let webView = WKWebView()
 		
+		webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+		
 		self.init(webView: webView,
 				  isPopUp: false)
 		
